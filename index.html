@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ranking de Profesores por Materia</title>
+  <link rel="stylesheet" href="ranking_profesores.css" />
+  <script src="ranking_profesores.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">SAAC ESPOL</p>
+        <h1>Ranking de Profesores por Materia</h1>
+        <p class="subtitle">Ranking descriptivo por promedio, desviación estándar, cursos dictados y rango de evaluaciones.</p>
+      </div>
+
+      <form id="searchForm" class="search-card" autocomplete="off">
+        <label for="materia">Código de materia</label>
+        <div class="search-row">
+          <input id="materia" name="materia" type="text" placeholder="Ejemplo: MATG1001" />
+          <button id="buscar" type="submit">Analizar</button>
+        </div>
+      </form>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+    <section id="stats" class="stats-grid" hidden></section>
+
+    <section class="workspace-grid">
+      <section class="panel results-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Ranking</p>
+            <h2>Resultados</h2>
+          </div>
+          <span id="rankingMeta" class="panel-meta"></span>
+        </div>
+        <div id="resultados" class="empty-state">Ingresa una materia para iniciar el análisis.</div>
+      </section>
+
+      <aside class="panel compare-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Comparación</p>
+            <h2>Dos profesores</h2>
+          </div>
+        </div>
+
+        <div class="compare-controls">
+          <label for="profesorA">Profesor A</label>
+          <select id="profesorA" disabled>
+            <option value="">Selecciona un profesor</option>
+          </select>
+
+          <label for="profesorB">Profesor B</label>
+          <select id="profesorB" disabled>
+            <option value="">Selecciona un profesor</option>
+          </select>
+
+          <button id="comparar" type="button" disabled>Comparar</button>
+        </div>
+
+        <div id="comparacion" class="compare-empty">La comparación aparecerá aquí.</div>
+      </aside>
+    </section>
+
+    <section id="detalles"></section>
+  </main>
+</body>
+</html>
